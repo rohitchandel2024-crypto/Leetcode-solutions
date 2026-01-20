@@ -20,32 +20,27 @@ class Solution {
         int size = 2;
         ListNode res = null;
 
-        while(left != null && left.next != null){
-
-            right = left;
-            for(int i = 0; i < (size - 1); i++){
-                if(right == null) break;
-                right = right.next;
+        while(left!=null && left.next!=null){
+            right =left;
+            for(int i=0;i<(size-1);i++){
+                if(right==null) break;
+                right=right.next;
             }
 
-            if(right != null){
-                ListNode nextLeft = right.next;
-                ListNode newHead = reverse(left, size);
-
-                if(prevLeft != null){
-                    prevLeft.next = newHead;
+            if(right!=null){
+                ListNode nextLeft =right.next;
+                ListNode newHead =reverse(left,size);
+                if(prevLeft!=null){
+                    prevLeft.next=newHead;
                 }
-                prevLeft = left;
-
-                if(res == null){
-                    res = newHead;
+                prevLeft=left;
+                if(res==null){
+                    res=newHead;
                 }
-
-                left.next = nextLeft;
-                left = nextLeft;
+                left.next=nextLeft;
+                left=nextLeft;
             }
         }
-
-        return res != null ? res : head;
+        return res!=null ? res : head;
     }
 }
