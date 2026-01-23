@@ -27,7 +27,7 @@ class Solution {
                 }
                 else{
                  
-                    if(nums[nums.length-1]<target){
+                    if(last<target){
                         high=guess-1;
                     }
                     else{
