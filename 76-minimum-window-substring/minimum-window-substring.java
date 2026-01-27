@@ -10,7 +10,7 @@ class Solution {
     }
 
     public String minWindow(String s, String t) {
-        if (s.length() == 0 || t.length() == 0) return "";
+     
 
         int[] needed = new int[256];
         int[] have = new int[256];
