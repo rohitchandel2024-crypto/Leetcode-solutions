@@ -1,44 +1,38 @@
 class Solution {
 
-    private boolean sahi(int[] have, int[] needed) {
-        for (int i = 0; i < 256; i++) {
-            if (have[i] < needed[i]) {
-                return false;
-            }
+    boolean sahi(int [] have, int [] need){
+        for(int i=0;i<256;i++){
+            if(have[i]<need[i]) return false;
         }
         return true;
     }
+    
 
     public String minWindow(String s, String t) {
-     
+    int [] have = new int [256];
+    int [] need = new int [256];
 
-        int[] needed = new int[256];
-        int[] have = new int[256];
-
-        // count t
-        for (char c : t.toCharArray()) {
-            needed[c]++;
+    for(char c:t.toCharArray()){
+        need[c]++;
+    }
+    int low=0;
+    int start=0;
+    int res=Integer.MAX_VALUE;
+    for(int high=0;high<s.length();high++)
+    {
+        char ch=s.charAt(high);
+        have[ch]++;
+    
+    while(sahi(have,need)){
+        int len=high-low+1;
+        if(len<res) {
+            res=len;
+            start=low;
         }
-
-        int low = 0;
-        int start = 0;
-        int res = Integer.MAX_VALUE;
-
-        for (int high = 0; high < s.length(); high++) {
-            have[s.charAt(high)]++;
-
-            while (sahi(have, needed)) {
-                int len = high - low + 1;
-                if (len < res) {
-                    res = len;
-                    start = low;
-                }
-
-                have[s.charAt(low)]--;
-                low++;
-            }
-        }
-
-        return res == Integer.MAX_VALUE ? "" : s.substring(start, start + res);
+        have[s.charAt(low)]--;
+        low++;
+    }
+    }
+    return res ==Integer.MAX_VALUE ? "" : s.substring(start,start+res);
     }
 }
