@@ -13,7 +13,7 @@ class Solution {
     for(int i=0;i<n;i++){
         char curr=s.charAt(i);
         if(st.isEmpty()){
-            st.push(new Pair (curr,1));
+            st.push(new Pair(curr,1));
             continue;
         }
         if(st.peek().first!=curr){
@@ -22,20 +22,19 @@ class Solution {
         }
         if(st.peek().second<k-1){
             Pair p=st.pop();
-            st.push(new Pair (p.first,p.second+1));
+            st.push(new Pair(p.first,p.second+1));
             continue;
         }
         st.pop();
-
     }
-    StringBuilder res = new StringBuilder();
+    StringBuilder res=new StringBuilder();
     while(!st.isEmpty()){
         Pair p=st.pop();
         while(p.second-- >0){
             res.append(p.first);
-
         }
+       
     }
-    return res.reverse().toString();
+     return res.reverse().toString();
     }
 }
