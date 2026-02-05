@@ -9,7 +9,7 @@ class Solution {
                 nums[j]=temp;
                 i++;
             }
-           if(nums[i]!=0){
+          else if(nums[i]!=0){
             i++;
            }
             
