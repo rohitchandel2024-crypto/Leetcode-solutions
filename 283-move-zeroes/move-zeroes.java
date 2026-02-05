@@ -1,7 +1,7 @@
 class Solution {
     public void moveZeroes(int[] nums) {
         int i=0;
-        int j=i+1;
+        int j=1;
         while( j<nums.length){
             if(nums[i]==0 && nums[j]!=0){
                 int temp=nums[i];
