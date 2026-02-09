@@ -16,11 +16,15 @@ int dist(){
 class Solution {
     public int[][] kClosest(int[][] points, int k) {
         PriorityQueue<Pair> pq=new PriorityQueue <>(
-            (a,b)->a.dist()-b.dist()
+            (a,b)->b.dist()-a.dist()
         );
 
         for(int[] p:points){
             pq.offer(new Pair(p[0],p[1]));
+
+            if(pq.size()>k){
+                pq.poll();
+            }
         }
 
         int [][] res= new int [k][2];
