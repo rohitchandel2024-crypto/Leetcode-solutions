@@ -29,8 +29,8 @@ class Pair{
             if(pq.isEmpty()){
                 return w;
             }
-            w=w+pq.peek();
-             pq.poll();
+            w=w+ pq.poll();;
+            
         }
            
         
