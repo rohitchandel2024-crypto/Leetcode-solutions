@@ -1,3 +1,5 @@
+
+// Better soluttion not optimal
 class Solution {
     static class Node{
         int val,row,col;
