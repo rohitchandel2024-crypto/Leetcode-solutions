@@ -1,19 +1,19 @@
 class Solution {
-    void func(int open ,int close,int n ,String temp , List<String> res){
-        if(open==n && close ==n){
+    void func(int n , String temp ,List<String>res, int open ,int close){
+        if(open == n && close == n){
             res.add(temp);
-            return ;
+            return;
         }
         if(open<n){
-            func(open+1,close,n,temp+'(',res);
+            func(n,temp+'(',res,open+1,close);
         }
         if(close<open){
-            func(open,close+1,n,temp+')',res);
+           func(n,temp+')',res,open,close+1); 
         }
     }
     public List<String> generateParenthesis(int n) {
-        List<String> res= new ArrayList<>();
-        func(0,0,n,"",res);
-        return res;
+    List<String> res = new ArrayList<>();
+    func(n,"",res,0,0);
+    return res;
     }
 }
